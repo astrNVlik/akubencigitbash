@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mie Ayam Mantap – Enak, Halal, dan Murah</title>
+  <meta name="description" content="Mie Ayam Mantap: mie kenyal, ayam bumbu rempah, porsi hemat. Pesan online via WhatsApp atau datang ke kedai kami." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a;           /* slate-900 */
+      --card:#111827;         /* gray-900 */
+      --muted:#94a3b8;        /* slate-400 */
+      --text:#e5e7eb;         /* gray-200 */
+      --brand:#22c55e;        /* green-500 */
+      --brand-2:#16a34a;      /* green-600 */
+      --accent:#fde68a;       /* amber-200 */
+      --radius:20px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0b1024, var(--bg));font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;color:var(--text)}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(1100px,92%);margin-inline:auto}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(15,23,42,.6);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav .row{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+    .brand .logo{width:40px;height:40px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #34d399, #047857);display:grid;place-items:center;color:white;box-shadow:var(--shadow)}
+    .menu{display:flex;gap:22px}
+    .menu a{font-weight:500;color:var(--text);opacity:.9}
+    .menu a:hover{opacity:1}
+    .btn{display:inline-block;padding:12px 18px;border-radius:999px;background:var(--brand);color:#052e16;font-weight:700;box-shadow:var(--shadow)}
+    .btn:hover{background:var(--brand-2);color:white}
+    .btn-outline{background:transparent;border:1.5px solid rgba(255,255,255,.18);color:var(--text)}
+    .hero{position:relative;isolation:isolate}
+    .hero::before{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1604908553993-83addaf6b309?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;opacity:.22;z-index:-2}
+    .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 40% at 20% 20%,rgba(34,197,94,.35),transparent 60%);z-index:-1}
+    .hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;padding:70px 0 40px}
+    .kicker{color:var(--accent);font-weight:600;letter-spacing:.1em;font-size:.9rem}
+    h1{font-size:clamp(32px, 4vw, 52px);line-height:1.1;margin:12px 0 14px}
+    .lead{color:var(--muted);font-size:1.05rem}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+    .badge{padding:8px 12px;border:1px dashed rgba(255,255,255,.2);border-radius:999px;color:#d1fae5;font-weight:600}
+    .hero-card{background:linear-gradient(180deg,rgba(17,24,39,.8),rgba(17,24,39,.6));border:1px solid rgba(255,255,255,.08);padding:20px;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .price{font-size:36px;font-weight:800;color:#bbf7d0}
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin:40px 0}
+    .feature{background:var(--card);border:1px solid rgba(255,255,255,.06);padding:18px;border-radius:var(--radius)}
+    .feature h3{margin:6px 0 8px}
+    .feature p{color:var(--muted);font-size:.95rem}
+    .section{padding:56px 0}
+    .section h2{font-size:clamp(26px,3.2vw,38px);margin:0 0 8px}
+    .section .sub{color:var(--muted);margin-bottom:26px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    .card .cap{padding:14px 16px}
+    .price-tag{font-weight:800;color:#86efac}
+    .strike{opacity:.6;text-decoration:line-through;margin-left:8px}
+    .row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+    .pill{font-size:.85rem;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
+    .testimonial{background:linear-gradient(180deg,rgba(17,24,39,.8),rgba(17,24,39,.5));border:1px solid rgba(255,255,255,.08);padding:18px;border-radius:var(--radius)}
+    .quote{font-style:italic}
+    .faq-item{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:16px}
+    .faq-q{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:600}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--muted)}
+    .faq-item.open .faq-a{max-height:300px;margin-top:10px}
+    .cta{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;background:linear-gradient(90deg,rgba(34,197,94,.2),rgba(34,197,94,.05));border:1px solid rgba(34,197,94,.25);padding:18px;border-radius:var(--radius)}
+    footer{padding:40px 0;color:#cbd5e1;border-top:1px solid rgba(255,255,255,.06);margin-top:50px}
+    .small{font-size:.9rem;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero .wrap{grid-template-columns:1fr;gap:20px}
+      .menu{display:none}
+      .menu.show{display:flex;flex-direction:column;gap:12px;position:absolute;right:4%;top:62px;background:var(--card);padding:14px;border-radius:14px;border:1px solid rgba(255,255,255,.08)}
+      .hamb{display:inline-flex}
+    }
+    .hamb{display:none;border:1px solid rgba(255,255,255,.12);background:transparent;color:var(--text);padding:8px 12px;border-radius:10px}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container row">
+      <a href="#" class="brand">
+        <span class="logo">🍜</span>
+        <span>Mie Ayam Mantap</span>
+      </a>
+      <div class="menu" id="menu">
+        <a href="#menu-section">Menu</a>
+        <a href="#keunggulan">Keunggulan</a>
+        <a href="#testimoni">Testimoni</a>
+        <a href="#kontak">Kontak</a>
+      </div>
+      <div class="row">
+        <a class="btn btn-outline" href="#menu-section">Lihat Menu</a>
+        <button class="hamb" id="hamb">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container wrap">
+      <div>
+        <div class="kicker">#1 Favorit Keluarga</div>
+        <h1>Mie Ayam <span style="color:#86efac">Kenyal</span>, Ayam <span style="color:#86efac">Berbumbu</span>, Porsi <span style="color:#86efac">Hemat</span>.</h1>
+        <p class="lead">Dibuat harian dari bahan segar, halal, higienis. Cocok untuk sarapan, makan siang, hingga lembur malam.</p>
+        <div class="badges">
+          <span class="badge">Halal</span>
+          <span class="badge">Tanpa Pengawet</span>
+          <span class="badge">Bisa COD</span>
+          <span class="badge">Gratis Sambal</span>
+        </div>
+        <div class="row">
+          <a class="btn" href="https://www.tiktok.com/@jayamieayam777?lang=en target="_blank" rel="noopener">Pesan via Tiktok</a>
+          <a class="btn btn-outline" href="#menu-section">Lihat Varian</a>
+        </div>
+        <div class="hero-card" style="margin-top:16px">
+          <div class="row">
+            <div>
+              <div class="small">Mulai dari</div>
+              <div class="price">Rp12.000 <span class="small">/ porsi</span></div>
+            </div>
+            <div class="row" style="margin-left:auto">
+              <span class="pill">Buka 09.00–21.00</span>
+              <span class="pill">Antar 3–5 km</span>
+              <span class="pill">Bayar QRIS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+  </header>
+
+  <!-- KEUNGGULAN -->
+  <section class="section" id="keunggulan">
+    <div class="container">
+      <h2>Kenapa Pilih Kami?</h2>
+      <p class="sub">Kami menjaga rasa, kualitas, dan pelayanan agar kamu selalu ingin balik lagi.</p>
+      <div class="features">
+        <div class="feature">
+          <h3>Kuah Kaldu Gurih</h3>
+          <p>Rebusan tulang ayam & rempah. Gurih hangat tanpa micin berlebih.</p>
+        </div>
+        <div class="feature">
+          <h3>Mie Buatan Sendiri</h3>
+          <p>Mie kenyal fresh harian, tanpa pengawet. Tekstur pas tidak mudah lembek.</p>
+        </div>
+        <div class="feature">
+          <h3>Topping Melimpah</h3>
+          <p>Ayam cincang bumbu kecap rempah + sayur segar. Porsi puas.</p>
+        </div>
+        <div class="feature">
+          <h3>Higienis & Halal</h3>
+          <p>Dapur bersih, SOP mask & sarung tangan, sertifikasi halal dalam proses.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section" id="menu-section">
+    <div class="container">
+      <h2>Menu Favorit</h2>
+      <p class="sub">Bisa tambah bakso, pangsit, ceker, atau level pedas sesuai selera.</p>
+      <div class="grid">
+        <article class="card">
+          <img src="images.jpeg" alt="Mie ayam original"/>
+          <div class="cap">
+            <div class="row" style="justify-content:space-between">
+              <strong>Mie Ayam Original</strong>
+              <span class="price-tag">Rp12.000</span>
+            </div>
+            <div class="small">Mie kenyal + ayam manis gurih + sawi + bawang goreng</div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="06fce354-78b3-4aa2-b070-efaa73343a81.jpg" alt="Mie ayam bakso"/>
+          <div class="cap">
+            <div class="row" style="justify-content:space-between">
+              <strong>Mie Ayam Bakso</strong>
+              <span class="price-tag">Rp15.000</span>
+            </div>
+            <div class="small">Tambah 3 bakso urat, kuah kaldu hangat</div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="picture-1573210202.jpg" alt="Mie ayam pangsit"/>
+          <div class="cap">
+            <div class="row" style="justify-content:space-between">
+              <strong>Mie Ayam Pangsit</strong>
+              <span class="price-tag">Rp16.000</span>
+            </div>
+            <div class="small">Pangsit goreng renyah + pangsit kuah lembut</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAKET -->
+  <section class="section">
+    <div class="container">
+      <h2>Paket & Hemat</h2>
+      <p class="sub">Cocok untuk tanggal tua, meeting kantor, atau arisan.</p>
+      <div class="grid">
+        <div class="card">
+          <div class="cap">
+            <h3>Paket Berdua</h3>
+            <p class="small">2 Mie Ayam + 2 Es Teh</p>
+            <div class="row" style="justify-content:space-between;align-items:end;margin-top:8px">
+              <span class="price-tag">Rp28.000</span>
+              <a class="btn" href="https://www.tiktok.com/@jayamieayam777?lang=en" target="_blank" rel="noopener">Pesan</a>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cap">
+            <h3>Paket Keluarga</h3>
+            <p class="small">4 Mie Ayam + 4 Topping</p>
+            <div class="row" style="justify-content:space-between;align-items:end;margin-top:8px">
+              <span class="price-tag">Rp55.000</span>
+              <a class="btn" href="https://www.tiktok.com/@jayamieayam777?lang=en" target="_blank" rel="noopener">Pesan</a>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cap">
+            <h3>Paket Kantoran</h3>
+            <p class="small">10 Box (free ongkir 3 km)</p>
+            <div class="row" style="justify-content:space-between;align-items:end;margin-top:8px">
+              <span class="price-tag">Rp115.000</span>
+              <a class="btn" href="https://www.tiktok.com/@jayamieayam777?lang=enn" target="_blank" rel="noopener">Pesan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONI -->
+  <section class="section" id="testimoni">
+    <div class="container">
+      <h2>Kata Pelanggan</h2>
+      <p class="sub">Ratusan mangkuk terjual setiap hari, ini beberapa testimoni mereka.</p>
+      <div class="grid">
+        <div class="testimonial">
+          <div class="quote">“Mienya kenyal, topping ayam manis-gurih. Anak-anak suka!”</div>
+          <div class="small">— Ibu Rina, warga setempat</div>
+        </div>
+        <div class="testimonial">
+          <div class="quote">“Harga bersahabat, cocok buat kantong mahasiswa.”</div>
+          <div class="small">— Andi, mahasiswa</div>
+        </div>
+        <div class="testimonial">
+          <div class="quote">“Pengiriman cepat. Kuah masih panas sampai rumah.”</div>
+          <div class="small">— Sari, karyawan</div>
+        </div>
+        <div class="testimonial">
+          <div class="quote">“Pangsitnya garing, sambalnya nampol!”</div>
+          <div class="small">— Budi, ojek online</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <h2>FAQ</h2>
+      <div class="grid">
+        <div class="faq-item">
+          <div class="faq-q">Apakah bisa request level pedas? <span>＋</span></div>
+          <div class="faq-a">Bisa. Tersedia sambal 3 level: sedang, pedas, extra pedas.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Metode pembayaran apa saja? <span>＋</span></div>
+          <div class="faq-a">Tunai, QRIS, transfer bank, dan e-wallet populer.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Apakah tersedia catering? <span>＋</span></div>
+          <div class="faq-a">Tersedia untuk minimal 30 porsi, booking H-1.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAK -->
+  <section class="section" id="kontak">
+    <div class="container">
+      <h2>Lokasi & Kontak</h2>
+      <p class="sub">Datang langsung atau pesan online. Kami siap melayani!</p>
+      <div class="cta">
+        <div>
+          <div><strong>Alamat:</strong> Jl. BSD Raya Utama No.17, Pagedangan, Kec. Pagedangan, Kabupaten Tangerang, Banten 15117</div>
+          <div><strong>Jam Buka:</strong> Senin–Minggu, 09.00–21.00</div>
+        
+        </div>
+        <a class="btn" href="https://www.tiktok.com/@jayamieayam777?lang=en" target="_blank" rel="noopener">Pesan Sekarang</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container row" style="justify-content:space-between;align-items:center">
+      <div>© <span id="year"></span> Mie Ayam Mantap • <span class="small">Rasa Mantap, Harga Bersahabat</span></div>
+      <div class="row">
+        <a class="pill" href="#">Instagram</a>
+        <a class="pill" href="#">TikTok</a>
+        <a class="pill" href="#">ShopeeFood</a>
+        <a class="pill" href="#">GrabFood</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JSON-LD Schema for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Mie Ayam Mantap",
+    "servesCuisine": "Indonesian",
+    "priceRange": "$$",
+    "telephone": "+62-812-3456-7890",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jl. Kenangan No. 123",
+      "addressLocality": "Kota Kamu",
+      "addressCountry": "ID"
+    },
+    "openingHours": "Mo-Su 09:00-21:00",
+    "sameAs": [
+      "https://instagram.com/",
+      "https://tiktok.com/"
+    ]
+  }
+  </script>
+
+  <!-- Simple JS -->
+  <script>
+    // tahun footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // menu mobile
+    const hamb = document.getElementById('hamb');
+    const menu = document.getElementById('menu');
+    hamb.addEventListener('click', ()=> menu.classList.toggle('show'));
+
+    // FAQ toggle
+    document.querySelectorAll('.faq-item').forEach(item=>{
+      item.querySelector('.faq-q').addEventListener('click', ()=>{
+        item.classList.toggle('open');
+      })
+    })
+  </script>
+</body>
+</html>
